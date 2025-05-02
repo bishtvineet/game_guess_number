@@ -1,0 +1,87 @@
+.App {
+    min-height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+  }
+  
+  .container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .game-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  label {
+    font-weight: 500;
+    color: #555;
+  }
+  
+  input {
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+  
+  button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background: #764ba2;
+  }
+  
+  .message {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    background: #f0f0f0;
+    color: #333;
+  }
+  
+  .error-message {
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    background: #ffebee;
+    color: #c62828;
+  } 
