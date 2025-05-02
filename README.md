@@ -73,7 +73,7 @@ A simple number guessing game built with React (frontend) and FastAPI (backend).
 
 1. Navigate to the frontend directory created on vite:
    ```bash
-   cd frontend
+   cd gamefrontend
    ```
 
 2. Install dependencies:
