@@ -21,7 +21,7 @@ function App() {
         return;
       }
 
-      const response = await axios.post('http://localhost:8000/game/start', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/start-game`, {
         min_number: parseInt(minNumber),
         max_number: parseInt(maxNumber)
       });
@@ -55,7 +55,7 @@ function App() {
         return;
       }
       
-      const response = await axios.post('http://localhost:8000/game/guess', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/guess`, {
         guess: parseInt(guess)
       });
       

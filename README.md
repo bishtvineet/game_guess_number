@@ -14,14 +14,47 @@ A simple number guessing game built with React (frontend) and FastAPI (backend).
 │   │   ├── routes/        # API routes
 │   │   └── services/      # Business logic
 │   └── requirements.txt
-└── gamefrontend/              # React frontend
-    ├── src/
-    │   ├── App.js         # Main React component
-    │   └── App.css        # Styles
-    └── package.json
+├── gamefrontend/          # React frontend
+│   ├── src/
+│   │   ├── App.js         # Main React component
+│   │   └── App.css        # Styles
+│   └── package.json
+├── docker-compose.yml     # Docker Compose configuration
+├── backend/Dockerfile     # Backend Docker configuration
+└── gamefrontend/Dockerfile # Frontend Docker configuration
 ```
 
 ## Setup and Running
+
+### Using Docker (Recommended)
+
+1. Make sure you have Docker and Docker Compose installed on your system.
+
+2. Build and start the containers:
+   ```bash
+   docker-compose up --build
+   ```
+
+3. Access the application:
+   - Frontend: `http://localhost:3000`
+   - Backend: `http://localhost:3001`
+
+4. For development with hot reloading:
+   - Any changes to backend files will automatically trigger a reload
+   - Any changes to frontend files will automatically trigger a rebuild
+   - No need to restart containers for code changes
+
+5. To stop the containers:
+   ```bash
+   docker-compose down
+   ```
+
+6. To view logs:
+   ```bash
+   docker-compose logs -f
+   ```
+
+### Manual Setup (Alternative)
 
 ### Backend (FastAPI)
 
