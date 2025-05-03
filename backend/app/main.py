@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes.game import router as game_router
+from .controllers import game_controller
 
 app = FastAPI(
     title="Number Guessing Game API",
@@ -18,7 +18,7 @@ app.add_middleware(
 )
 
 # Include routers
-app.include_router(game_router)
+app.include_router(game_controller.router)
 
 @app.get("/")
 async def root():

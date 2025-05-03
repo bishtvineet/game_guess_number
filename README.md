@@ -11,17 +11,31 @@ A simple number guessing game built with React (frontend) and FastAPI (backend).
 │   │   ├── __init__.py
 │   │   ├── main.py        # Main FastAPI application
 │   │   ├── models/        # Pydantic models
-│   │   ├── routes/        # API routes
-│   │   └── services/      # Business logic
-│   └── requirements.txt
+│   │   │   └── game.py    # Game models and schemas
+│   │   ├── services/      # Business logic
+│   │   │   └── game_service.py  # Game service implementation
+│   │   └── controllers/   # API routes
+│   │       └── game_controller.py  # Game API endpoints
+│   ├── requirements.txt
+│   └── Dockerfile
 ├── gamefrontend/          # React frontend
 │   ├── src/
-│   │   ├── App.js         # Main React component
-│   │   └── App.css        # Styles
-│   └── package.json
+│   │   ├── components/    # Reusable UI components
+│   │   │   ├── GameForm.jsx      # Form component
+│   │   │   ├── GameInput.jsx     # Input component
+│   │   │   ├── GameMessage.jsx   # Message component
+│   │   │   └── Celebration.jsx   # Celebration component
+│   │   ├── services/      # API services
+│   │   │   └── api.js     # API communication
+│   │   ├── hooks/         # Custom React hooks
+│   │   │   └── useGame.js # Game logic hook
+│   │   ├── App.jsx        # Main React component
+│   │   ├── App.css        # Styles
+│   │   └── main.jsx       # Entry point
+│   ├── package.json
+│   └── Dockerfile
 ├── docker-compose.yml     # Docker Compose configuration
-├── backend/Dockerfile     # Backend Docker configuration
-└── gamefrontend/Dockerfile # Frontend Docker configuration
+└── README.md             # Project documentation
 ```
 
 ## Setup and Running
@@ -69,7 +83,6 @@ A simple number guessing game built with React (frontend) and FastAPI (backend).
    python -m venv venv                     # Recreate venv
    .\venv\Scripts\Activate                 # Activate
 
-
 3. Install dependencies:
    ```bash
    pip install -r requirements.txt
@@ -86,32 +99,22 @@ A simple number guessing game built with React (frontend) and FastAPI (backend).
 
    The backend will be available at `http://localhost:8000`
 
-#### Troubleshooting Backend
-
-1. If you see "uvicorn not recognized":
-   - Make sure you've activated the virtual environment
-   - Use `python -m uvicorn` instead of just `uvicorn`
-   - Try reinstalling with `pip install uvicorn fastapi`
-
-2. If you see import errors:
-   - Ensure you're in the correct directory (backend/)
-   - Check that all files are in their correct locations
-   - Verify the virtual environment is activated
-
-3. If you see "Module not found" errors:
-   - Make sure you're running the server from the backend/ directory
-   - Verify the directory structure matches the project structure above
+#### Backend Structure
+- `models/`: Contains Pydantic models and data schemas
+- `services/`: Contains business logic and game state management
+- `controllers/`: Contains API routes and request handling
+- `main.py`: Application configuration and setup
 
 ### Frontend (React)
 
-1. Navigate to the frontend directory created on vite:
+1. Navigate to the frontend directory:
    ```bash
    cd gamefrontend
    ```
 
 2. Install dependencies:
    ```bash
-   npm install or npm i
+   npm install
    ```
 
 3. Start the development server:
@@ -121,17 +124,17 @@ A simple number guessing game built with React (frontend) and FastAPI (backend).
 
    The frontend will be available at `http://localhost:3000`
 
-#### Troubleshooting Frontend
-
-1. If npm install fails:
-   - Clear npm cache: `npm cache clean --force`
-   - Delete node_modules: `rm -rf node_modules`
-   - Try installing again: `npm install`
-
-2. If you see CORS errors:
-   - Verify the backend is running
-   - Check that the backend URL in App.js matches your backend server
-   - Verify CORS middleware is enabled in the backend
+#### Frontend Structure
+- `components/`: Reusable UI components
+  - `GameForm.jsx`: Form component for game inputs
+  - `GameInput.jsx`: Input field component
+  - `GameMessage.jsx`: Message display component
+  - `Celebration.jsx`: Victory celebration component
+- `services/`: API communication
+  - `api.js`: Axios instance and API calls
+- `hooks/`: Custom React hooks
+  - `useGame.js`: Game state and logic management
+- `App.jsx`: Main application component
 
 ## How to Play
 
@@ -171,6 +174,8 @@ Once the backend is running, you can access:
 - Clean and modular code structure
 - Type-safe API with Pydantic models
 - Interactive API documentation
+- Hot reloading for development
+- Docker support for easy deployment
 
 ## Development Notes
 
@@ -179,4 +184,7 @@ Once the backend is running, you can access:
 - Animations implemented with Framer Motion
 - CORS enabled for local development
 - Type validation with Pydantic
-- Error handling on both frontend and backend 
+- Error handling on both frontend and backend
+- Component-based architecture
+- Custom hooks for game logic
+- Centralized API service 
